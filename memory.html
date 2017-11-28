@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>在路上</title>
-<meta name="keywords" content="在路上,博客,回忆" />
+<meta name="keywords" content="在路上,博客,记忆" />
 <meta name="description" content="一路走来几多风雨几多愁,只有不断学习才能让我真正变得强大到百毒不侵,无所畏惧" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link href="css/base.css" rel="stylesheet">
 <link href="css/msh.css" rel="stylesheet">
 <!--[if lt IE 9]>
@@ -18,13 +19,16 @@
 	var perPageCount=5;
 	var pageTotal=Math.ceil(nameList.length/perPageCount);
 </script>	
+
 </head>
 <body>
+
+
 <header>
   <div class="logo" data-scroll-reveal="enter right over 1s"><!-- <a href="/"><img src="images/logo.png"></a>--><font size='12'>在路上</font></div> 
    <nav class="topnav" data-scroll-reveal="enter bottom over 1s after 1s">
 		<a href="index.html"><span>首页</span><span class="en">Home</span></a>
-		<a href="memory.html"><span>回忆</span><span class="en">Life</span></a>
+		<a href="memory.html"><span>记忆</span><span class="en">Life</span></a>
 		<!-- <a href="learn.html"><span>碎言碎语</span><span class="en">Doing</span></a> -->
 		<!-- <a href="mbfx.html"><span>模板分享</span><span class="en">Share</span></a> -->
 		<!-- <a href="learn.html"><span>学无止境</span><span class="en">Learn</span></a> -->
@@ -33,7 +37,7 @@
   </nav></header>
 <article>
   <div class="container">
-    <h2 class="ctitle"><b>回忆生活</b> <span>遇见你倾尽了我余生不多的运气</span></h2>
+    <h2 class="ctitle"><b>记忆</b> <span>遇见你倾尽了我余生不多的运气</span></h2>
     <div class="photowall">
 			<ul class="wall_a">
 				<li>
@@ -90,13 +94,8 @@
 				</li>
 			</ul>
 		</div>
-    <ul class="cbp_tmtimeline" id="cbp_tmtimeline">
-       
-    </ul>
-	
-	
-    <div class="page" id="page">
-		 
+    <ul class="cbp_tmtimeline"></ul>
+    <div class="page" >	 
 	</div>
   </div>
   </aside>
@@ -121,7 +120,7 @@
 		 }
 		 pageStr+='<a href="javascript:pageData('+(curPage+1)+');">&gt;</a>';	 
 		 pageStr+='<a href="javascript:pageData('+pageTotal+');">&gt;&gt;</a>';	
-		document.getElementById("page").innerHTML=pageStr;
+		 $(".page").html(pageStr);
 	}
 	pageHtml();
 </script>	
@@ -129,7 +128,7 @@
 <!-- note列表 -->
 <script type = "text/javascript">
 	var pageData = function(index){
-		var strHtml = "";//存储数据的变量 		 
+		var strHtml="";
 		var startIndex=perPageCount*(index-1);
 		var endIndex=perPageCount*index;
 		if(endIndex>nameList.length){
@@ -151,10 +150,11 @@
 			strHtml+="</div>";
 			strHtml+="</li>";			
 		}
-		document.getElementById("cbp_tmtimeline").innerHTML=strHtml;
+		$(".cbp_tmtimeline").html(strHtml); 
 		pageHtml();
-	}		
+	}
 	pageData(1);
+	
 </script>
 
 
