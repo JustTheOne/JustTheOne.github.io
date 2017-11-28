@@ -81,7 +81,7 @@ pid-file=/var/run/mysqld/mysqld.pid
 [root@zkyml ~]# <span style="color: #0000ff;">/etc/init.d/httpd start</span>
 等价于 <span style="color: #0000ff;">service httpd start</span>
 此时内网访问能够看到 “Apache 2 Test Page powered by CentOS” 的测试页面。<span style="color: #ff0000;">
-如果其他机器访问这台服务无法显示这个页面，而直接在这台服务器上可以访问的话，一般情况下是 CentOS 自带的防火墙禁止了。你只需要进入防火墙，将对应的 “80” 端口打开即可</span>。<span style="color: #00ff00;"><a style="color: #00ff00;" href="http://170193l9r8.51mypc.cn/?p=141">iptables开放端口设置看这里</a></span>
+如果其他机器访问这台服务无法显示这个页面，而直接在这台服务器上可以访问的话，一般情况下是 CentOS 自带的防火墙禁止了。你只需要进入防火墙，将对应的 “80” 端口打开即可</span>。<span style="color: #00ff00;"><a style="color: #00ff00;" href="./note1.html">iptables开放端口设置看这里</a></span>
 在 CentOS 中 Apache 的服务名为httpd，默认根目录是 /var/www/html，配置文件 /etc/httpd/conf/httpd.conf。其他配置存储在 /etc/httpd/conf.d/ 目录。
 
 <hr />
