@@ -11,6 +11,13 @@
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <script src="js/scrollReveal.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/gogo.json"></script>
+<script type = "text/javascript">
+	var curPage=1;
+	var perPageCount=5;
+	var pageTotal=Math.ceil(nameList.length/perPageCount);
+</script>	
 </head>
 <body>
 <header>
@@ -70,14 +77,14 @@
 				<li>
 					<a href="#"><img src="images/p05.jpg">
 						<figcaption>
-							<h2>不再因为别人过得好而焦虑，在没有人看得到你的时候依旧能保持节奏 </h2>
+							<h2>不再因为别人过得好而焦虑，在没有人看得到的时候依旧能保持节奏 </h2>
 						</figcaption>
 					</a>
 				</li>
 				<li>
 					<a href="#"><img src="images/p06.jpg">
 						<figcaption>
-							<h2>生活总是让我们遍体鳞伤,但到后来,那些受伤的地方一定会变成我们最强壮的地方————最强壮的地方 </h2>
+							<h2>生活总是让我们遍体鳞伤,但到后来,那些受伤的地方一定会变成我们最强壮的地方</h2>
 						</figcaption>
 					</a>
 				</li>
@@ -86,11 +93,54 @@
     <ul class="cbp_tmtimeline" id="cbp_tmtimeline">
        
     </ul>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/gogo.json"></script>
-	<script type = "text/javascript"> 				 
-		var strHtml = "";//存储数据的变量 
-		for(var i=0;i<nameList.length;i++){
+	
+	
+    <div class="page" id="page">
+		 
+	</div>
+  </div>
+  </aside>
+</article>
+<footer>&copy;2016-2017 张阿坤@Akkun  <a href='http://www.miibeian.gov.cn' target='_blank'>豫ICP备17008159号</a> </footer>
+
+
+<!-- js区域 -->
+
+<!-- 页码展示点击信息 -->
+<script type = "text/javascript">	
+	var pageHtml=function(){	 
+		var pageStr="";
+		pageStr+='共<a title="Total record" href="javascript:pageData('+pageTotal+');"><b>'+pageTotal+'</b> </a>页	';
+		 <!-- document.write('<a href="javascript:pageData('+(1)+');">&lt</a>');	  -->
+		 for(var j=1;j<=pageTotal;j++){
+			if(curPage==j){
+				pageStr+='<b>'+j+'</b>';
+			}else{
+				pageStr+='<a href="javascript:pageData('+j+');">'+j+'</a>';
+			}
+		 }
+		 pageStr+='<a href="javascript:pageData('+(curPage+1)+');">&gt;</a>';	 
+		 pageStr+='<a href="javascript:pageData('+pageTotal+');">&gt;&gt;</a>';	
+		document.getElementById("page").innerHTML=pageStr;
+	}
+	pageHtml();
+</script>	
+
+<!-- note列表 -->
+<script type = "text/javascript">
+	var pageData = function(index){
+		var strHtml = "";//存储数据的变量 		 
+		var startIndex=perPageCount*(index-1);
+		var endIndex=perPageCount*index;
+		if(endIndex>nameList.length){
+			endIndex=nameList.length;
+		}
+		curPage=index;
+		if(curPage>pageTotal){
+			alert('哎哟喂,没有更多了哦');
+			return;
+		}	
+		for(var i=startIndex;i<endIndex;i++){
 			strHtml+="<li>";									
 			strHtml+="<time class='cbp_tmtime'><span>"+nameList[i].monthday+"</span> <span>"+nameList[i].year+"</span></time>";
 			strHtml+="<div class='cbp_tmicon'></div>";
@@ -99,16 +149,15 @@
 			strHtml+=" <p><span class='blogpic'><a href='/'><img src='"+nameList[i].imgsrc+"'></a></span> <br />"+nameList[i].content+"<br /></p>";
 			strHtml+="<a href='"+nameList[i].ahref+"' target='_blank' class='readmore'>阅读全文&gt;&gt;</a>";
 			strHtml+="</div>";
-			strHtml+="</li>";
-					
+			strHtml+="</li>";			
 		}
-		document.getElementById("cbp_tmtimeline").innerHTML=strHtml;				 
-	</script>
-    <div class="page"><a title="Total record"><b>107</b> </a><b>1</b><a href="/news/index_2.html">2</a><a href="/news/index_3.html">3</a><a href="/news/index_4.html">4</a><a href="/news/index_5.html">5</a><a href="/news/index_2.html">&gt;</a><a href="/news/index_5.html">&gt;&gt;</a></div>
-  </div>
-  </aside>
-</article>
-<footer>&copy;2016-2017 张阿坤@Akkun  <a href='http://www.miibeian.gov.cn' target='_blank'>豫ICP备17008159号</a> </footer>
+		document.getElementById("cbp_tmtimeline").innerHTML=strHtml;
+		pageHtml();
+	}		
+	pageData(1);
+</script>
+
+
 <script>
 	if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
 		(function(){
@@ -116,5 +165,6 @@
 		})();
 	};
 </script>
+
 </body>
 </html>
