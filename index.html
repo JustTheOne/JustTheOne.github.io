@@ -62,8 +62,9 @@
 
 
 <script type = "text/javascript"> 		
+	var perConut = 7;//hotnote现实条数
 	var strHtml = "";//存储数据的变量 
-	for(var i=0;i<4;i++){
+	for(var i=0;i<perConut;i++){
 		strHtml+="<li>";									
 		strHtml+="<time class='cbp_tmtime'><span>"+nameList[i].monthday+"</span> <span>"+nameList[i].year+"</span></time>";
 		strHtml+="<div class='cbp_tmicon'></div>";
@@ -73,7 +74,6 @@
 		strHtml+="<a href='"+nameList[i].ahref+"' target='_blank' class='readmore'>阅读全文&gt;&gt;</a>";
 		strHtml+="</div>";
 		strHtml+="</li>";
-				
 	}
 	$(".cbp_tmtimeline").html(strHtml);
 </script>
