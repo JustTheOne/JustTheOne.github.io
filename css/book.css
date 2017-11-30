@@ -1,4 +1,4 @@
-@charset "gb2312";
+@charset "utf-8";
 .gbook { margin: 30px }
 /* loading  */
 #fountainG { position: relative; width: 240px; height: 29px; margin-bottom: 30px }
