@@ -8,7 +8,10 @@
 <script type="text/javascript">	
 	var musicPlayer=$("#bgaudio")[0];
 	function playmusic() {
-		var x = Math.round(Math.random() * (musicList.length-1));
+		var x = Math.floor(Math.random() * musicList.length);
+		if(musicPlayer.src==musicList[x].musicUrl){
+			x++;
+		}
 		musicPlayer.src=musicList[x].musicUrl;
 		musicPlayer.play();
 	}
