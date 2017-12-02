@@ -1,5 +1,5 @@
 # Welcome to my website
-
+***
 ## Just about me
 
 > Hi，我是Akkun，欢迎来到我的blog
@@ -11,10 +11,10 @@
  在路上，风雨无阻
 
  Hello，张阿坤。
-
+***
 ## About my web
 
->  - 域　名：www.zkyml.com  于2016年05月10日 
+  - 域　名：www.zkyml.com  于2016年05月10日 
 
    - 服务器：GitHub Pages[点击访问](http://www.zkyml.com) 
 
