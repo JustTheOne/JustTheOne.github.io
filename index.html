@@ -69,20 +69,21 @@
 		})();
 	};
 </script> 
-<script type="text/javascript">					 
+<script type="text/javascript">	
+	var musicPlayer=$("#bgaudio")[0];
 	function playmusic() {
 		var x = Math.round(Math.random() * (musicList.length-1));
-		$("#bgaudio").attr("src",musicList[x].musicUrl);
-		$("#bgaudio").play();
+		musicPlayer.src=musicList[x].musicUrl;
+		musicPlayer.play();
 	}
-	playmusic();
-	isEnd();
 	function isEnd() {
-		if($("#bgaudio").ended) {
+		if(musicPlayer.ended) {
 			playmusic();
 		}
 		setTimeout("isEnd()", 5000);
 	} 
+	playmusic();
+	isEnd();
 </script>
 <script type = "text/javascript"> 		
 	var perConut = 7;//hotnote现实条数
