@@ -19,11 +19,8 @@
 	var perPageCount=5;
 	var pageTotal=Math.ceil(nameList.length/perPageCount);
 </script>	
-
 </head>
 <body>
-
-
 <header>
   <div class="logo" data-scroll-reveal="enter right over 1s"><!-- <a href="/"><img src="images/logo.png"></a>--><font size='12'>在路上</font></div> 
    <nav class="topnav" data-scroll-reveal="enter bottom over 1s after 1s">
@@ -34,7 +31,8 @@
 		<!-- <a href="learn.html"><span>学无止境</span><span class="en">Learn</span></a> -->
 		<a href="about.html"><span>关于我</span><span class="en">About</span></a>
 		  <a href="msgb.html"><span>留言</span><span class="en">Saying</span></a>  
-  </nav></header>
+  </nav>
+</header>
 <article>
   <div class="container">
     <h2 class="ctitle"><b>记忆</b> <span>遇见你倾尽了我余生不多的运气</span></h2>
@@ -110,7 +108,6 @@
 	var pageHtml=function(){	 
 		var pageStr="";
 		pageStr+='共<a title="Total record" href="javascript:pageData('+pageTotal+');"><b>'+pageTotal+'</b> </a>页	';
-		 <!-- document.write('<a href="javascript:pageData('+(1)+');">&lt</a>');	  -->
 		 for(var j=1;j<=pageTotal;j++){
 			if(curPage==j){
 				pageStr+='<b>'+j+'</b>';
