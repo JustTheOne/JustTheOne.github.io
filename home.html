@@ -85,9 +85,15 @@ h2 { padding: 10px; font-size: 45px }
 	var newData=function(){
 		var perConut = 7;//hotnote现实条数
 		var strHtml = "";//存储数据的变量 
+		 var time=new Date();
+		
 		for(var i=0;i<perConut;i++){
+			time.setDate(time.getDate()-i);
+			var month=time.getMonth()+1;
+			var day=time.getDate();
+			var year=time.getYear()+1900;
 			strHtml+="<li>";									
-			strHtml+="<time class='cbp_tmtime'><span>"+nameList[i].monthday+"</span> <span>"+nameList[i].year+"</span></time>";
+			strHtml+="<time class='cbp_tmtime'><span>"+month+'-'+day+"</span> <span>"+year+"</span></time>";
 			strHtml+="<div class='cbp_tmicon'></div>";
 			strHtml+="<div class='cbp_tmlabel' data-scroll-reveal='enter right over 1s' >";
 			strHtml+="<h2>"+nameList[i].title+"</h2>";
