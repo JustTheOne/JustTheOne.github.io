@@ -137,14 +137,14 @@
 			alert('哎哟喂,没有更多了哦');
 			return;
 		}	
-		 var time=new Date();
+
 		for(var i=startIndex;i<endIndex;i++){
-		time.setDate(time.getDate()-i);
+			var time=new Date();
+			time.setDate(time.getDate()-i);
 			var month=time.getMonth()+1;
 			var day=time.getDate();
-			var year=time.getYear()+1900;
+			var year=time.getFullYear();
 			strHtml+="<li>";									
-			<!-- strHtml+="<time class='cbp_tmtime'><span>"+nameList[i].monthday+"</span> <span>"+nameList[i].year+"</span></time>"; -->
 			strHtml+="<time class='cbp_tmtime'><span>"+month+'-'+day+"</span> <span>"+year+"</span></time>";
 			strHtml+="<div class='cbp_tmicon'></div>";
 			strHtml+="<div class='cbp_tmlabel' data-scroll-reveal='enter right over 1s' >";
